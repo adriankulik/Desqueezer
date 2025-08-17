@@ -31,6 +31,7 @@ chmod +x ./scripts/desqueezer.sh
 
 This plugin only works on DNG files.
 If your camera does not shoot in DNG format, export your photos to DNG:
+
 1. Create a subfolder
 2. Export the images as DNG
 3. Run the plugin on the exported files
@@ -45,12 +46,12 @@ To install **Desqueezer** in Lightroom Classic:
 2. Copy the entire `Desqueezer.lrdevplugin` folder (including all its contents) into that `Modules` directory.
 3. Open Lightroom Classic.
 4. Go to: File → Plug-in Manager...
-   
 5. Click **"Add"** (or **"Reload Plug-in"** if updating), then navigate to the `Desqueezer.lrdevplugin` folder.
 
 6. Click **Done** when the plugin is successfully loaded.
 
 You should now see **"Desqueezer"** as an option under:
+
 - `Library → Plug-in Extras`
 - Or optionally under `File → Plug-in Extras`, depending on how it's configured in `Info.lua`
 
@@ -59,20 +60,22 @@ You should now see **"Desqueezer"** as an option under:
 ## 🚧 Next Steps / Roadmap
 
 - [ ] **Add a README GIF to ilustrate how this plugin works**  
-  Allow users to input custom squeeze ratios.  
-  *(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)*
+      Allow users to input custom squeeze ratios.  
+      _(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)_
 
 - [ ] **UI for Squeeze Factor**  
-  Allow users to input custom squeeze ratios.  
-  *(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)*
+      Allow users to input custom squeeze ratios.  
+      _(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)_
 
 - [ ] **Orientation Handling**  
-  Add support for both horizontal and vertical images.  
-  *(Currently assumes vertical anamorphic, resulting in square 1:1 output.)*
+      Add support for both horizontal and vertical images.  
+      _(Currently assumes vertical anamorphic, resulting in square 1:1 output.)_
 
 - [ ] **Windows Compatibility**  
-  Make the plugin functional on Windows machines using PowerShell or `.bat` alternatives.
+      Make the plugin functional on Windows machines using PowerShell or `.bat` alternatives.
 
+- [ ] **Instalation UX Improvements**  
+      Install exiftool and create a executable by creating an installation bash script.
 
 ## 📄 License
 
