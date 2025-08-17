@@ -2,16 +2,16 @@ return {
     
     LrSdkVersion = 3.0,
     LrSdkMinimumVersion = 1.3,
-    LrToolkitIdentifier = 'art.adriankulik.anamorphic-desqueeze',
-    LrPluginName = LOC "$$$/Anamorphic/PluginName=Anamorphic Desqueeze",
+    LrToolkitIdentifier = 'art.adriankulik.Desqueezer',
+    LrPluginName = LOC "$$$/Anamorphic/PluginName=Desqueezer",
     
     LrExportMenuItems = {
-        title = "Anamorphic Desqueeze",
+        title = "Desqueezer",
         file = "Main.lua",
     },
 
     LrLibraryMenuItems = {
-        title = "Anamorphic Desqueeze",
+        title = "Desqueezer",
         file = "Main.lua",
     },
 

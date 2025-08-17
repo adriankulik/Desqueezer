@@ -36,7 +36,7 @@ local function callDesqueezeBashScript()
             return
         end
 
-        local scriptPath = LrPathUtils.child(_PLUGIN.path, 'scripts/anamorphic-desqueeze.sh')
+        local scriptPath = LrPathUtils.child(_PLUGIN.path, 'scripts/desqueezer.sh')
 
         if not LrFileUtils.exists(scriptPath) then
             LrDialogs.message("Error", "The bash script was not found.", "critical")
