@@ -4,6 +4,9 @@ local LrLogger = import 'LrLogger'
 local LrPathUtils = import 'LrPathUtils'
 local LrFileUtils = import 'LrFileUtils'
 local LrApplication = import 'LrApplication'
+local LrFunctionContext = import 'LrFunctionContext'
+local LrView = import 'LrView'
+local LrBinding = import 'LrBinding'
 
 local myLogger = LrLogger('exportLogger')
 myLogger:enable('print')
@@ -12,7 +15,7 @@ local function outputToLog(message)
     myLogger:trace(message)
 end
 
-local function callDesqueezeBashScript()
+local function callDesqueezeBashScript(squeezeFactor)
     LrTasks.startAsyncTask(function()
 
         local catalog = LrApplication.activeCatalog()
@@ -44,7 +47,7 @@ local function callDesqueezeBashScript()
             return
         end
 
-        local command = '/bin/bash "' .. scriptPath .. '" ' .. table.concat(dngPaths, " ")
+        local command = '/bin/bash "' .. scriptPath .. '" ' .. squeezeFactor .. " " .. table.concat(dngPaths, " ")
 
         outputToLog("Running command: " .. command)
 
@@ -63,4 +66,64 @@ local function callDesqueezeBashScript()
     end)
 end
 
-callDesqueezeBashScript()
+local function showCustomDialogWithTransform()
+	LrFunctionContext.callWithContext( "RadioButtons", function( context )
+		local props = LrBinding.makePropertyTable( context )
+		props.selectedButton = "1.5"
+				
+		local f = LrView.osFactory()
+		
+		local c = f:column {
+			bindToObject = props,
+			spacing = f:control_spacing(),
+			
+			f:row{
+				f:row {
+					spacing = f:control_spacing(),
+
+					f:radio_button {
+						title = "1.33",
+						value = LrView.bind( "selectedButton" ),
+						checked_value = "1.33",
+					},
+					
+					f:radio_button {
+						title = "1.5",
+						value = LrView.bind( "selectedButton" ),
+						checked_value = "1.5",
+					},
+
+					f:radio_button {
+						title = "1.6",
+						value = LrView.bind( "selectedButton" ),
+						checked_value = "1.6",
+					},
+
+					f:radio_button {
+						title = "1.8",
+						value = LrView.bind( "selectedButton" ),
+						checked_value = "1.8",
+					},
+
+					f:radio_button {
+						title = "2.0",
+						value = LrView.bind( "selectedButton" ),
+						checked_value = "2.0",
+					},
+				},
+			},
+		}
+		
+		local result = LrDialogs.presentModalDialog {
+			title = "Select lens squeeze factor",
+			contents = c
+		}
+
+        if result == "ok" then
+            callDesqueezeBashScript(props.selectedButton)
+        end
+	
+	end)
+end
+
+showCustomDialogWithTransform()
