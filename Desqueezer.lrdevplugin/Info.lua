@@ -1,5 +1,4 @@
 return {
-    
     LrSdkVersion = 3.0,
     LrSdkMinimumVersion = 1.3,
     LrToolkitIdentifier = 'art.adriankulik.Desqueezer',
@@ -15,5 +14,5 @@ return {
         file = "Main.lua",
     },
 
-    VERSION = { major=1, minor=0, revision=0 },
+    VERSION = { major=2, minor=0, revision=0 },
 }
