@@ -14,15 +14,18 @@ if ! command -v exiftool &> /dev/null; then
     exit 1
 fi
 
-if [ "$#" -eq 0 ]; then
-    echo "No DNG files provided as arguments."
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 <squeezeFactor> <dng files...>"
     exit 1
 fi
 
+squeezeFactor="$1"
+shift
+
 for dng_file in "$@"; do
     if [ -f "$dng_file" ]; then
-        echo "Desqueezing: $dng_file"
-        exiftool -DefaultScale="1 1.5" -overwrite_original "$dng_file"
+        echo "Desqueezing: $dng_file with factor $squeezeFactor"
+        exiftool -DefaultScale="1 $squeezeFactor" -overwrite_original "$dng_file"
         if [ $? -eq 0 ]; then
             echo "Success: $dng_file"
         else
