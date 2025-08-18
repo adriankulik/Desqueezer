@@ -59,6 +59,9 @@ You should now see **"Desqueezer"** as an option under:
 
 ## 🚧 Next Steps / Roadmap
 
+- [ ] **Add linting to .sh and .lua files**  
+       Unify the code formatting.
+
 - [ ] **Add a README GIF to ilustrate how this plugin works**  
        Show users how to install and use this plugin in a visual manner.
 
@@ -73,7 +76,7 @@ You should now see **"Desqueezer"** as an option under:
 - [ ] **Windows Compatibility**  
        Make the plugin functional on Windows machines using PowerShell or `.bat` alternatives.
 
-- [ ] **Instalation UX Improvements**  
+- [ ] **Installation UX Improvements**  
        Install exiftool and create a executable by creating an installation bash script.
 
 ## 📄 License
