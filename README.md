@@ -59,15 +59,15 @@ You should now see **"Desqueezer"** as an option under:
 
 ## 🚧 Next Steps / Roadmap
 
+- [x] **UI for Squeeze Factor**  
+       Allow users to input custom squeeze ratios.  
+       _(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)_
+
 - [ ] **Add linting to .sh and .lua files**  
        Unify the code formatting.
 
 - [ ] **Add a README GIF to ilustrate how this plugin works**  
        Show users how to install and use this plugin in a visual manner.
-
-- [ ] **UI for Squeeze Factor**  
-       Allow users to input custom squeeze ratios.  
-       _(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)_
 
 - [ ] **Orientation Handling**  
        Add support for both horizontal and vertical images.  
