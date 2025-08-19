@@ -45,7 +45,7 @@ To install **Desqueezer** in Lightroom Classic:
    - **Windows:** `C:\Users\<YourName>\AppData\Roaming\Adobe\Lightroom\Modules\`
 2. Copy the entire `Desqueezer.lrdevplugin` folder (including all its contents) into that `Modules` directory.
 3. Open Lightroom Classic.
-4. Go to: File → Plug-in Manager...
+4. Go to: `File → Plug-in Manager...`
 5. Click **"Add"** (or **"Reload Plug-in"** if updating), then navigate to the `Desqueezer.lrdevplugin` folder.
 
 6. Click **Done** when the plugin is successfully loaded.
@@ -53,7 +53,7 @@ To install **Desqueezer** in Lightroom Classic:
 You should now see **"Desqueezer"** as an option under:
 
 - `Library → Plug-in Extras`
-- Or optionally under `File → Plug-in Extras`, depending on how it's configured in `Info.lua`
+- `File → Plug-in Extras`
 
 > 💡 If you make changes to the plugin code, you can simply reload it from the Plug-in Manager.
 
