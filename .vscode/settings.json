@@ -10,9 +10,5 @@
   "files.associations": {
     "*.sh": "shellscript"
   },
-  "Lua.diagnostics.globals": [
-    "LOC",
-    "_PLUGIN",
-    "import"
-  ],
+  "Lua.diagnostics.globals": ["_PLUGIN", "import"]
 }
