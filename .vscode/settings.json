@@ -1,0 +1,14 @@
+{
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "mkhl.shfmt",
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "*.sh": "shellscript"
+  },
+  "Lua.diagnostics.globals": ["_PLUGIN", "import"]
+}
