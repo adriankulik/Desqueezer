@@ -71,17 +71,17 @@ You should now see **"Desqueezer"** as an option under:
        Add support for both horizontal and vertical images.  
        _(Currently assumes vertical anamorphic, resulting in square 1:1 output.)_
 
-- [ ] **Add linting to .sh and .lua files**  
+- [x] **Add linting to .sh and .lua files**  
        Unify the code formatting.
+
+- [ ] **Installation UX Improvements**  
+       Install exiftool and create a executable by creating an installation bash script.
 
 - [ ] **Add a README GIF to ilustrate how this plugin works**  
        Show users how to install and use this plugin in a visual manner.
 
 - [ ] **Windows Compatibility**  
        Make the plugin functional on Windows machines using PowerShell or `.bat` alternatives.
-
-- [ ] **Installation UX Improvements**  
-       Install exiftool and create a executable by creating an installation bash script.
 
 ## 📄 License
 
