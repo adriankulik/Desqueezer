@@ -63,15 +63,15 @@ You should now see **"Desqueezer"** as an option under:
        Allow users to input custom squeeze ratios.  
        _(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)_
 
+- [x] **Orientation Handling**  
+       Add support for both horizontal and vertical images.  
+       _(Currently assumes vertical anamorphic, resulting in square 1:1 output.)_
+
 - [ ] **Add linting to .sh and .lua files**  
        Unify the code formatting.
 
 - [ ] **Add a README GIF to ilustrate how this plugin works**  
        Show users how to install and use this plugin in a visual manner.
-
-- [ ] **Orientation Handling**  
-       Add support for both horizontal and vertical images.  
-       _(Currently assumes vertical anamorphic, resulting in square 1:1 output.)_
 
 - [ ] **Windows Compatibility**  
        Make the plugin functional on Windows machines using PowerShell or `.bat` alternatives.
