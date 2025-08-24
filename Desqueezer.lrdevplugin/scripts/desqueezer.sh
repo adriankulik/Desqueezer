@@ -14,18 +14,24 @@ if ! command -v exiftool &> /dev/null; then
     exit 1
 fi
 
-if [ "$#" -lt 2 ]; then
-    echo "Usage: $0 <squeezeFactor> <dng files...>"
+if [ "$#" -lt 3 ]; then
+    echo "Usage: $0 <squeezeFactor> <axis: Horizontal|Vertical> <dng files...>"
     exit 1
 fi
 
 squeezeFactor="$1"
-shift
+axis="$2"
+shift 2
 
 for dng_file in "$@"; do
     if [ -f "$dng_file" ]; then
-        echo "Desqueezing: $dng_file with factor $squeezeFactor"
-        exiftool -DefaultScale="1 $squeezeFactor" -overwrite_original "$dng_file"
+        echo "Desqueezing: $dng_file with factor $squeezeFactor on axis $axis"
+        if [ "$axis" = "Horizontal" ]; then
+            exiftool -DefaultScale="$squeezeFactor 1" -overwrite_original "$dng_file"
+        else
+            exiftool -DefaultScale="1 $squeezeFactor" -overwrite_original "$dng_file"
+        fi
+
         if [ $? -eq 0 ]; then
             echo "Success: $dng_file"
         else

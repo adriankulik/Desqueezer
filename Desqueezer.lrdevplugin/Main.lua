@@ -15,7 +15,7 @@ local function outputToLog(message)
     myLogger:trace(message)
 end
 
-local function callDesqueezeBashScript(squeezeFactor)
+local function callDesqueezeBashScript(squeezeFactor, axis)
     LrTasks.startAsyncTask(function()
 
         local catalog = LrApplication.activeCatalog()
@@ -35,7 +35,7 @@ local function callDesqueezeBashScript(squeezeFactor)
         end
 
         if #dngPaths == 0 then
-            LrDialogs.message("No DNGs Found", "Selected photos do not include any DNG files.", "info")
+            LrDialogs.message("No DNGs Found", "Selected photos do not include any DNG files. Please convert your photos first.", "info")
             return
         end
 
@@ -47,7 +47,7 @@ local function callDesqueezeBashScript(squeezeFactor)
             return
         end
 
-        local command = '/bin/bash "' .. scriptPath .. '" ' .. squeezeFactor .. " " .. table.concat(dngPaths, " ")
+        local command = '/bin/bash "' .. scriptPath .. '" ' .. squeezeFactor .. " " .. axis .. " " .. table.concat(dngPaths, " ")
 
         outputToLog("Running command: " .. command)
 
@@ -67,63 +67,78 @@ local function callDesqueezeBashScript(squeezeFactor)
 end
 
 local function showCustomDialogWithTransform()
-	LrFunctionContext.callWithContext( "RadioButtons", function( context )
-		local props = LrBinding.makePropertyTable( context )
-		props.selectedButton = "1.5"
-				
-		local f = LrView.osFactory()
-		
-		local c = f:column {
-			bindToObject = props,
-			spacing = f:control_spacing(),
-			
-			f:row{
-				f:row {
-					spacing = f:control_spacing(),
+    LrFunctionContext.callWithContext("RadioAndToggle", function(context)
+        local f = LrView.osFactory()
+        local props = LrBinding.makePropertyTable(context)
 
-					f:radio_button {
-						title = "1.33",
-						value = LrView.bind( "selectedButton" ),
-						checked_value = "1.33",
-					},
-					
-					f:radio_button {
-						title = "1.5",
-						value = LrView.bind( "selectedButton" ),
-						checked_value = "1.5",
-					},
+        props.selectedRatio = "1.5"
+        props.verticalMode = false
 
-					f:radio_button {
-						title = "1.6",
-						value = LrView.bind( "selectedButton" ),
-						checked_value = "1.6",
-					},
+        local ratioRow = f:row {
+            spacing = f:control_spacing(),
+            f:radio_button {
+                title = "1.33",
+                value = LrView.bind("selectedRatio"),
+                checked_value = "1.33",
+                group = "ratio",
+            },
+            f:radio_button {
+                title = "1.5",
+                value = LrView.bind("selectedRatio"),
+                checked_value = "1.5",
+                group = "ratio",
+            },
+            f:radio_button {
+                title = "1.6",
+                value = LrView.bind("selectedRatio"),
+                checked_value = "1.6",
+                group = "ratio",
+            },
+            f:radio_button {
+                title = "1.8",
+                value = LrView.bind("selectedRatio"),
+                checked_value = "1.8",
+                group = "ratio",
+            },
+            f:radio_button {
+                title = "2.0",
+                value = LrView.bind("selectedRatio"),
+                checked_value = "2.0",
+                group = "ratio",
+            },
+        }
 
-					f:radio_button {
-						title = "1.8",
-						value = LrView.bind( "selectedButton" ),
-						checked_value = "1.8",
-					},
-
-					f:radio_button {
-						title = "2.0",
-						value = LrView.bind( "selectedButton" ),
-						checked_value = "2.0",
-					},
-				},
-			},
+        local axisToggle = f:checkbox {
+			title = "Vertical Anamorphic",
+			value = LrView.bind("verticalMode"),
 		}
-		
-		local result = LrDialogs.presentModalDialog {
-			title = "Select lens squeeze factor",
-			contents = c
+
+		local axisNote = f:static_text {
+			title = "If checked, the photo will get desqueezed along the shorter edge.",
+			font = "<system/small>",
+			alignment = "left",
 		}
+
+        local result = LrDialogs.presentModalDialog {
+            title = "Select lens squeeze factor & axis",
+            contents = f:column {
+                bindToObject = props,
+                spacing = f:control_spacing(),
+
+                f:static_text { title = "Choose squeeze ratio:" },
+                ratioRow,
+                f:spacer { height = 10 },
+				f:static_text { title = "Choose desqueeze axis:" },
+                axisToggle,
+				axisNote,
+            }
+        }
 
         if result == "ok" then
-            callDesqueezeBashScript(props.selectedButton)
+            local axis = props.verticalMode and "Vertical" or "Horizontal"
+            callDesqueezeBashScript(props.selectedRatio, props.verticalMode and "Vertical" or "Horizontal")
         end
-	
-	end)
+    end)
 end
 
 showCustomDialogWithTransform()
