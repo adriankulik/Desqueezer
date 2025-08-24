@@ -16,6 +16,8 @@ fi
 
 if [ "$#" -lt 3 ]; then
     echo "Usage: $0 <squeezeFactor> <axis: Horizontal|Vertical> <dng files...>"
+if [ "$#" -lt 3 ]; then
+    echo "Usage: $0 <squeezeFactor> <axis: Horizontal|Vertical> <dng files...>"
     exit 1
 fi
 
