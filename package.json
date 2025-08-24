@@ -1,0 +1,11 @@
+{
+  "name": "formatter-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "format:lua": "stylua . --glob '**/*.lua'",
+    "format:sh": "shfmt -w -i 4 -ci -bn .",
+    "format": "npm run format:lua && npm run format:sh"
+  },
+  "devDependencies": {}
+}
