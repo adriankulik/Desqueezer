@@ -74,9 +74,6 @@ You should now see **"Desqueezer"** as an option under:
 - [x] **Add linting to .sh and .lua files**  
        Unify the code formatting.
 
-- [ ] **Installation UX Improvements**  
-       Install exiftool and create a executable by creating an installation bash script.
-
 - [ ] **Add a README GIF to ilustrate how this plugin works**  
        Show users how to install and use this plugin in a visual manner.
 
