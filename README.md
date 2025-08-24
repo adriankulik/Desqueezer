@@ -36,6 +36,10 @@ If your camera does not shoot in DNG format, export your photos to DNG:
 2. Export the images as DNG
 3. Run the plugin on the exported files
 
+### 4. (Optional) Install other required `brew` packages
+
+Run the `brew:install` script located in the `package.json` file. Those scripts are required for keeping the repository neatly formatted and cleanly written.
+
 ## 🧩 Installing the Plugin in Lightroom
 
 To install **Desqueezer** in Lightroom Classic:
