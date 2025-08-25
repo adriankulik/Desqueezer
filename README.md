@@ -45,6 +45,7 @@ Run the `brew:install` script located in the `package.json` file. Those scripts 
 
 To install **Desqueezer** in Lightroom Classic:
 
+0. Download the newest release of this Plugin.
 1. Locate or create your **Lightroom Plugins folder**. This is usually located in:
    - **macOS:** `~/Library/Application Support/Adobe/Lightroom/Modules/`
    - **Windows:** `C:\Users\<YourName>\AppData\Roaming\Adobe\Lightroom\Modules\`
