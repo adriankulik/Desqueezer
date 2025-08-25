@@ -4,6 +4,8 @@
 
 **❗Please note: This plugin irreversibly changes the metadata. Please backup your photos before use.**
 
+![Animated logotype](https://raw.githubusercontent.com/adriankulik/Desqueezer/aacdfea07d6af846b4a4357e2cb841df042e3236/assets/Desqueezer_logo.gif)
+
 ---
 
 ## ⚙️ Prerequisites
@@ -34,7 +36,6 @@ If your camera does not shoot in DNG format, export your photos to DNG:
 
 1. Create a subfolder
 2. Export the images as DNG
-3. Run the plugin on the exported files
 
 ### 4. (Optional) Install other required `brew` packages
 
@@ -54,12 +55,26 @@ To install **Desqueezer** in Lightroom Classic:
 
 6. Click **Done** when the plugin is successfully loaded.
 
-You should now see **"Desqueezer"** as an option under:
+You should now see **"Adrian Kulik Anamorphic Utilities → Desqueezer"** as an option under:
 
 - `Library → Plug-in Extras`
 - `File → Plug-in Extras`
 
 > 💡 If you make changes to the plugin code, you can simply reload it from the Plug-in Manager.
+
+## 🏃 Running the Plugin
+
+![Plugin Interface showcase](https://raw.githubusercontent.com/adriankulik/Desqueezer/aacdfea07d6af846b4a4357e2cb841df042e3236/assets/Desqueezer_ui.gif)
+1. Select the photos you want to desqueeze.
+2. Run **"Adrian Kulik Anamorphic Utilities → Desqueezer"** by clicking one of the following options:
+   - `Library → Plug-in Extras`.
+   - `File → Plug-in Extras`.
+3. Choose:
+   - Your squeeze factor.
+   - Whether the photo is shot as vertical anamorphic or not.
+4. Click `Ok` and wait for the plugin to finish.
+5. In the `Library` tab, navigate to `Metadata → Read Metadata from Files`.
+6. Photos in the `Develop` tab are now desqueezed.
 
 ## 🚧 Next Steps / Roadmap
 
@@ -74,7 +89,7 @@ You should now see **"Desqueezer"** as an option under:
 - [x] **Add linting to .sh and .lua files**  
        Unify the code formatting.
 
-- [ ] **Add a README GIF to ilustrate how this plugin works**  
+- [x] **Add a README GIF to ilustrate how this plugin works**  
        Show users how to install and use this plugin in a visual manner.
 
 - [ ] **Windows Compatibility**  
