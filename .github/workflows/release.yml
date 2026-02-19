@@ -24,7 +24,10 @@ jobs:
       - name: Create ZIP package
         run: |
           mkdir -p artifacts
-          zip -r artifacts/desqueezer.zip . -i Info.lua Main.lua scripts/desqueezer.sh
+          zip -r artifacts/desqueezer.zip \
+            Desqueezer.lrdevplugin/Info.lua \
+            Desqueezer.lrdevplugin/Main.lua \
+            Desqueezer.lrdevplugin/scripts/desqueezer.sh
 
       # - name: Create or Update Release
       #   uses: ncipollo/release-action@v1
