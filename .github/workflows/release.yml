@@ -1,4 +1,4 @@
-name: Create release on push to master
+name: Create release on push to main
 
 on:
   push:
@@ -25,20 +25,19 @@ jobs:
             Desqueezer.lrdevplugin/Main.lua \
             Desqueezer.lrdevplugin/scripts/desqueezer.sh
 
-      - name: Determine next version
+      - name: Determine next version by date
         id: tag
-        uses: anothrNick/github-tag-action@v1
-        with:
-          github_token: ${{ secrets.PAT_TOKEN }}
-          default_bump: patch
-          release_branches: main
-          create_tag: true
+        run: |
+          SAFE_TAG=$(date +"%H-%M_%d-%m-%Y")
+          RELEASE_NAME=$(date +"%H:%M, %d %m %Y")
+          echo "new_tag=$SAFE_TAG" >> $GITHUB_OUTPUT
+          echo "release_name=$RELEASE_NAME" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag.outputs.new_tag }}
-          name: ${{ steps.tag.outputs.new_tag }}
+          name: ${{ steps.tag.outputs.release_name }}
           artifacts: artifacts/desqueezer.zip
           allowUpdates: true
           replacesArtifacts: true
