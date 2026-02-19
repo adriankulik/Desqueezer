@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   build:
@@ -24,15 +25,20 @@ jobs:
             Desqueezer.lrdevplugin/Main.lua \
             Desqueezer.lrdevplugin/scripts/desqueezer.sh
 
-      - name: Set release name with date
-        run: |
-          echo "RELEASE_NAME=Release $(date +'%Y-%m-%d-%H%M')" >> $GITHUB_ENV
+      - name: Determine next version
+        id: tag
+        uses: anothrNick/github-tag-action@v1.39.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: patch
+          release_branches: main
+          create_tag: true
 
-      - name: Create or Update Release
+      - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: latest
-          name: ${{ env.RELEASE_NAME }}
+          tag: ${{ steps.tag.outputs.new_tag }}
+          name: Release ${{ steps.tag.outputs.new_tag }}
           artifacts: artifacts/desqueezer.zip
           allowUpdates: true
           replacesArtifacts: true
