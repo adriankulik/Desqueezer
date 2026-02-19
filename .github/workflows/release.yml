@@ -1,0 +1,39 @@
+name: Build on push to master
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List files for debugging
+        run: |
+          pwd
+          ls -R
+
+      - name: Create ZIP package
+        run: |
+          mkdir -p artifacts
+          zip -r artifacts/desqueezer.zip \
+            Desqueezer.lrdevplugin/Info.lua \
+            Desqueezer.lrdevplugin/Main.lua \
+            Desqueezer.lrdevplugin/scripts/desqueezer.sh
+
+      - name: Create or Update Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: Release $(date +'%Y-%m-%d-%H%M')
+          artifacts: artifacts/desqueezer.zip
+          allowUpdates: true
+          replacesArtifacts: true
