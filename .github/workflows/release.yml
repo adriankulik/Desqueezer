@@ -16,6 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: List files for debugging
+        run: |
+          pwd
+          ls -R
+
       - name: Create ZIP package
         run: |
           mkdir -p artifacts
