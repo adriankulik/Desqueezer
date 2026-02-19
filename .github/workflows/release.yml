@@ -1,10 +1,9 @@
 name: Build on push to master
 
 on:
-  workflow_dispatch:
   push:
     branches:
-      - master
+      - ci-test
 
 permissions:
   contents: write
@@ -25,11 +24,11 @@ jobs:
             Main.lua \
             scripts/desqueezer.sh
 
-      - name: Create or Update Release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: latest
-          name: Latest Build
-          artifacts: artifacts/desqueezer.zip
-          allowUpdates: true
-          replacesArtifacts: true
+      # - name: Create or Update Release
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     tag: latest
+      #     name: Latest Build
+      #     artifacts: artifacts/desqueezer.zip
+      #     allowUpdates: true
+      #     replacesArtifacts: true
