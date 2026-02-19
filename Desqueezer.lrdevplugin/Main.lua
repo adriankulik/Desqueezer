@@ -50,6 +50,8 @@ local function callDesqueezeBashScript(squeezeFactor, axis)
 			return
 		end
 
+		LrDialogs.showBezel("Desqueezing photos… please wait")
+
 		local command = '/bin/bash "'
 			.. scriptPath
 			.. '" '
@@ -58,7 +60,6 @@ local function callDesqueezeBashScript(squeezeFactor, axis)
 			.. axis
 			.. " "
 			.. table.concat(dngPaths, " ")
-
 		outputToLog("Running command: " .. command)
 
 		local result = LrTasks.execute(command)

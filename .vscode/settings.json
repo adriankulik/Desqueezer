@@ -10,5 +10,9 @@
   "files.associations": {
     "*.sh": "shellscript"
   },
-  "Lua.diagnostics.globals": ["_PLUGIN", "import"]
+  "Lua.diagnostics.globals": [
+    "_PLUGIN",
+    "import"
+  ],
+  "stylua.targetReleaseVersion": "latest"
 }
