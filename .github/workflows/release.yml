@@ -16,11 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List files for debugging
-        run: |
-          pwd
-          ls -R
-
       - name: Create ZIP package
         run: |
           mkdir -p artifacts
@@ -29,11 +24,15 @@ jobs:
             Desqueezer.lrdevplugin/Main.lua \
             Desqueezer.lrdevplugin/scripts/desqueezer.sh
 
+      - name: Set release name with date
+        run: |
+          echo "RELEASE_NAME=Release $(date +'%Y-%m-%d-%H%M')" >> $GITHUB_ENV
+
       - name: Create or Update Release
         uses: ncipollo/release-action@v1
         with:
           tag: latest
-          name: Release $(date +'%Y-%m-%d-%H%M')
+          name: ${{ env.RELEASE_NAME }}
           artifacts: artifacts/desqueezer.zip
           allowUpdates: true
           replacesArtifacts: true
