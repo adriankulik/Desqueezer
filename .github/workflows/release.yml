@@ -1,9 +1,9 @@
-name: Build on push to master
+name: Create release on push to master
 
 on:
   push:
     branches:
-      - master
+      - main
 
 permissions:
   contents: write
