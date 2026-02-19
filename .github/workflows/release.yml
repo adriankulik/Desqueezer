@@ -38,7 +38,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag.outputs.new_tag }}
-          name: Release ${{ steps.tag.outputs.new_tag }}
+          name: ${{ steps.tag.outputs.new_tag }}
           artifacts: artifacts/desqueezer.zip
           allowUpdates: true
           replacesArtifacts: true
