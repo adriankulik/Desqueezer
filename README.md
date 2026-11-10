@@ -71,7 +71,8 @@ You should now see **"Adrian Kulik Anamorphic Utilities → Desqueezer"** as an 
    - `Library → Plug-in Extras`.
    - `File → Plug-in Extras`.
 3. Choose:
-   - Your squeeze factor.
+   - Your squeeze factor (preset or custom value).
+   - (Optional) Whether you are using an anamorphic adapter / converter (e.g. 1.25x), which automatically multiplies with the lens factor.
    - Whether the photo is shot as vertical anamorphic or not.
 4. Click `Ok` and wait for the plugin to finish.
 5. In the `Library` tab, navigate to `Metadata → Read Metadata from Files`.
@@ -80,8 +81,10 @@ You should now see **"Adrian Kulik Anamorphic Utilities → Desqueezer"** as an 
 ## 🚧 Next Steps / Roadmap
 
 - [x] **UI for Squeeze Factor**  
-       Allow users to input custom squeeze ratios.  
-       _(Currently hardcoded to `1.5x`, suitable for lenses like Blazar Remus and Atlas Mercury.)_
+       Allow users to select preset or input custom squeeze ratios.  
+
+- [x] **Anamorphic Adapter / Converter Support**  
+       Allow combining a primary anamorphic lens factor with an anamorphic adapter/converter.
 
 - [x] **Orientation Handling**  
        Add support for both horizontal and vertical images.  
