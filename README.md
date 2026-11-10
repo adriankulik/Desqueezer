@@ -1,5 +1,7 @@
 # Desqueezer
 
+[![Downloads](https://img.shields.io/github/downloads/adriankulik/Desqueezer/total?color=0e75b6)](https://github.com/adriankulik/Desqueezer/releases)
+
 **Desqueezer** is a Lightroom plugin that batch-applies an anamorphic desqueeze factor to selected DNG files by modifying their metadata using `exiftool`.
 
 **❗Please note: This plugin irreversibly changes the metadata. Please backup your photos before use.**
