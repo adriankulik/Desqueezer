@@ -1,6 +1,6 @@
 # Desqueezer
 
-![Visitors](https://komarev.com/ghpvc/?username=adriankulik-desqueezer&base=42&label=Visitors&color=0e75b6&style=flat)
+[![Downloads](https://img.shields.io/github/downloads/adriankulik/Desqueezer/total?color=0e75b6)](https://github.com/adriankulik/Desqueezer/releases)
 
 **Desqueezer** is a Lightroom plugin that batch-applies an anamorphic desqueeze factor to selected DNG files by modifying their metadata using `exiftool`.
 
